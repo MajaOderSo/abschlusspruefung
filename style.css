@@ -1,0 +1,404 @@
+*{ 
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased; 
+} 
+
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {background-color: #222222;}
+
+h1, h2, h3, h4 {
+  font-family: 'Ruloko', sans-serif;;
+  font-size: 38px;
+  line-height: 1.2;
+  color: white;
+  padding: 20px 0;
+  background: none !important;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background: none !important;
+}
+
+a, li  {
+  display: inline;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  color: white;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+/**FONTS**/
+@font-face {
+  src: url(fonts/ruluko-regular.ttf);
+  font-family:'Ruloko';
+}
+@font-face {
+  src: url(fonts/inter-extralight.ttf);
+  font-family:'Inter';
+}
+
+
+
+/**HEADER, LOGO & NAVIGATION**/
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  padding: 0 5%;
+  background-color: #222222;
+  z-index: 999;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  width: 10vw;
+  padding: 10px 0;
+}
+
+/**NAV MENU**/
+.nav {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+  top: 83px;
+  left: 0;
+  background-color: #222222;
+}
+
+.menu a {
+  display: block;
+  padding: 24px 20px;
+  color: white;
+}
+
+.menu a:hover,.menu a:active,.menu a:focus {
+background: #A67F5A;
+}
+
+.nav {
+  max-height: 0;
+  transition: max-height .4s ease-in-out;
+}
+
+/**MENU ICON**/
+.hamb {
+  cursor: pointer;
+  float: right;
+  padding: 0px;
+  z-index: 99;
+}/* Style for label tag */
+
+.hamb-line {
+  background: white;
+  display: block;
+  position: absolute;
+  height: 2px;
+  position: relative;
+  width: 32px;
+} /* Style for span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+  background: white;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+.hamb-line::before{top: 10px;}
+.hamb-line::after{top: -10px;}
+
+.side-menu {display: none;} /* Hide checkbox */
+
+
+/**TOOGLE MENU ICON**/
+.side-menu:checked ~ nav{
+  max-height: 100%;
+  top: 83px;
+}
+.side-menu:checked ~ .hamb .hamb-line {background: transparent;}
+.side-menu:checked ~ .hamb .hamb-line::before {
+  transform: rotate(-45deg);
+  top:0;
+}
+.side-menu:checked ~ .hamb .hamb-line::after {
+  transform: rotate(45deg);
+  top:0;
+}
+
+/**BUTTONS**/
+button {
+  margin-top: 30px;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.light {
+  background-color: rgba(255, 255, 255, 0); /* Green */
+  border: white solid 1px;
+}
+
+.beige {
+  background-color: #A67F5A;
+  border: none;
+}
+
+
+/**SLIDER**/
+.slider_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 30px;
+  min-height: 70vh;
+}
+
+.slide {background-color: green;}
+
+.slide_content {
+  position: absolute;
+  align-items: center;
+  width: 60%;
+  min-height: 60vh;
+  background-color: #A67F5A;
+  left: 5%;
+  padding: 60px 20vw 40px 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slide_content img {
+  background-color: #A67F5A;
+  padding-right: 4vw;
+  height: 6vh;
+  z-index: 99;
+}
+
+.slide_content h3 {
+  border-top: white solid 1px;
+  margin-top: -30px;
+  padding: 50px 5vw 10px 0 ;
+}
+
+
+.slide_img {
+  position: absolute;
+  width: 50%;
+  margin-top: -50px;
+  right: 5%;
+}
+
+.slide_img img {width: 100%;}
+
+
+/**NAVIGATION PIKTOGRAMME**/
+.nav_itm::before {
+  content: '';
+  width: 40px;
+  height: 20px;
+  display: inline-block;
+  margin: 0 6px -3px 0;;
+}
+
+.nav-1::before {
+  background: url(../img/bike_sale.svg);
+  background-repeat: no-repeat;
+}
+
+.nav-2::before {
+  background: url(../img/repair.svg);
+  background-repeat: no-repeat;
+}
+
+.nav-3::before {
+  background: url(../img/cargo_bike.svg);
+  background-repeat: no-repeat;
+}
+
+.nav-4::before {
+  background: url(../img/kids_abo.svg);
+  background-repeat: no-repeat;
+}
+
+.nav-4 {padding-right: 0px !important;}
+
+
+
+/**MAIN, SECTIONS, GENERAL**/
+main {
+  width: 100%;
+  margin: auto;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #222222;
+}
+
+section {
+  width: 90%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+article {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+article img {scroll-margin-top: 100px;}
+
+.full_box {
+  width: 100%;
+  max-width: 100vw;
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.beige_box {
+  width: 100%;
+  background: #A67F5A;
+  padding: 60px;
+}
+
+.black_box {padding: 60px 60px 60px 0;}
+
+.flex_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box_img {
+  display:block; 
+  width:50%; 
+  z-index: 9;
+}
+
+.box_content {width:50%;}
+
+
+/**ICON DIVIDER**/
+.icon_div {
+  height: 80px;
+  margin: 10%;
+}
+
+.full_box h3 {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 6px;
+}
+
+.full_box img {
+  height: 7vh;
+  margin-top: -60px;
+}
+
+.img_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/**FOOTER**/
+footer {background-color: #A67F5A;}
+footer li {padding: 0 2vw;}
+
+
+
+/**SMARTPHONE**/
+@media (max-width: 950px) {
+
+  h1, h2, h3, h4 {font-size: 28px;}
+  .logo {width: 30vw;} 
+
+  /**ICON DIVIDER**/
+  .beige_box.full_box {
+    display:inline;
+    height: auto;
+    padding: 0 14vw 10px 14vw;
+  } 
+
+  .img_box {
+    padding: 30px 0;
+    border-bottom: white solid 1px;
+  }
+
+  .beige_box.full_box > .img_box:last-child {
+    border-bottom: 0px;
+  }
+
+  .img_box h3 {padding:0}
+
+  .full_box img {
+    height: 6vh;
+    margin: 0 0 6px 0;
+  } 
+
+  .beige_box {
+    background: #222222;
+    padding: 0;
+  }
+
+  section + .flex_container {width: 180%;}
+
+  .flex_container {flex-direction: column;}
+  .turn {flex-direction: column-reverse;}
+
+  .light {
+    background-color: #A67F5A;
+    border: none;
+  }
+
+}
+
+
+/* SMARTPHONE MENU */
+@media (min-width: 1070px) {
+  .nav {
+      max-height: none;
+      top: 0;
+      position: relative;
+      float: right;
+      width: fit-content;
+  }
+  .menu li {float: left;}
+  .menu a:hover {background-color: transparent;}
+  .hamb {display: none;}
+}
